@@ -81,15 +81,17 @@ export default function Home() {
           {/* Illustration Section */}
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="w-[400px] h-[400px] md:w-[600px] md:h-[600px] flex items-center justify-center">
-              {/* Ganti src dengan path gambar ilustrasi dua HP Anda */}
-              <Image 
-                src="/mobile-illustrator.png" 
-                alt="Mobile Development Illustration - Two phones showing mobile development" 
-                width={1000}
-                height={1000}
-                className="w-full h-full object-contain"
-                priority
-              />
+              {/* Mobile Phone Logo with Animations */}
+              <div className="mobile-logo-container">
+                <Image 
+                  src="/mobile-illustrator.png" 
+                  alt="Mobile Development Illustration - Two phones showing mobile development" 
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-contain animate-mobile-entrance"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
