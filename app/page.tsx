@@ -562,7 +562,15 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Bottom Navigation */}
+        
+        {/* Footer */}
+        <div className="text-center py-8 mb-20">
+          <p className="text-slate-400 text-sm">
+            © 2025 Arvin Roeslim. All rights reserved.
+          </p>
+        </div>
+        
+        {/* Bottom Navigation */}
       <BottomNav />
     </main>
   );  
