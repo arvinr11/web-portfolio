@@ -4,6 +4,7 @@ import SplitText from "./components/TextAnimations/SplitText/SplitText";
 import {MoveRight, Download, FolderOpen, Award, Code} from 'lucide-react';
 import Image from 'next/image';
 import BottomNav from './components/BottomNav/BottomNav';
+
 import { useEffect, useState } from 'react';
 
 export default function Home() {
