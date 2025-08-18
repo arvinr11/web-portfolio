@@ -1,7 +1,20 @@
 // Project Queries
 export const projectQueries = {
   // Get all projects
-  all: `*[_type == "project"][0...5]`,
+  all: `*[_type == "project"] {
+    _id,
+    title,
+    description,
+    "technologies": technologies[] {
+      iconUrl
+    },
+    category,
+    "images": images[] {
+      "url": image.asset->url,
+      alt,
+      isMain
+    }
+  }`,
 
   // Get featured projects only
   featured: `*[_type == "project" && featured == true] | order(order asc, dateCreated desc) {
@@ -49,7 +62,13 @@ export const projectQueries = {
 // Certificate Queries
 export const certificateQueries = {
   // Get all certificates
-  all: `*[_type == "certificate"]`,
+  all: `*[_type == "certificate"] {
+    _id,
+    title,
+    issuer,
+    dateIssued,
+    "imageUrl": image.asset->url
+  }`,
 
   // Get certificates by year
   byYear: `*[_type == "certificate" && dateTime(dateIssued) >= dateTime($startDate) && dateTime(dateIssued) <= dateTime($endDate)] | order(dateIssued desc) {

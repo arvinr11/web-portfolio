@@ -4,12 +4,46 @@ import SplitText from "./components/TextAnimations/SplitText/SplitText";
 import {MoveRight, Download, FolderOpen, Award, Code} from 'lucide-react';
 import Image from 'next/image';
 import BottomNav from './components/BottomNav/BottomNav';
+import ProjectCard from './components/ProjectCard';
+import CertificateCard from './components/CertificateCard';
 
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('projects');
+  const [projects, setProjects] = useState<any[]>([]);
+  const [certificates, setCertificates] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   
+  useEffect(() => {
+    // Fetch data from Sanity
+    async function fetchData() {
+      try {
+        const { client } = await import('../lib/client');
+        const { projectQueries, certificateQueries } = await import('../lib/queries');
+        
+        const projectsData = await client.fetch(projectQueries.all);
+        const certificatesData = await client.fetch(certificateQueries.all);
+        
+        // Sort projects: featured first, then by year (newest first)
+        const sortedProjects = projectsData.sort((a: any, b: any) => {
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+          return (b.yearCreated || 0) - (a.yearCreated || 0);
+        });
+        
+        setProjects(sortedProjects);
+        setCertificates(certificatesData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   useEffect(() => {
     // Scroll ke atas saat halaman di-refresh - multiple methods untuk memastikan berhasil
     const scrollToTop = () => {
@@ -267,58 +301,22 @@ export default function Home() {
             {/* Projects Content */}
             {activeTab === 'projects' && (
               <div className="animate-fade-in">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Project Card 1 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-white text-lg font-semibold">Flutter App</span>
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      E-Commerce Mobile App
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      A full-featured e-commerce application built with Flutter and Firebase.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Flutter</span>
-                      <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Firebase</span>
-                    </div>
+                {loading ? (
+                  <div className="text-center py-8">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                    <p className="mt-4 text-slate-600 dark:text-slate-400">Loading projects...</p>
                   </div>
-
-                  {/* Project Card 2 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-white text-lg font-semibold">Kotlin App</span>
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      Task Management App
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      Native Android app for task management with Room database.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Kotlin</span>
-                      <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Room DB</span>
-                    </div>
+                ) : projects.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project) => (
+                      <ProjectCard key={project._id} project={project} />
+                    ))}
                   </div>
-
-                  {/* Project Card 3 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-white text-lg font-semibold">React App</span>
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      Portfolio Website
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      Personal portfolio website built with Next.js and Tailwind CSS.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
-                      <span className="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm rounded-full">Tailwind</span>
-                    </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-slate-600 dark:text-slate-400">No projects found</p>
                   </div>
-                </div>
+                )}
               </div>
             )}
 
