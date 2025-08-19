@@ -55,6 +55,7 @@ body {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 .animate-fade-in-up:nth-child(1) {
@@ -135,4 +136,24 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Disable image dragging and selection globally */
+img, svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Specifically harden the mobile illustration container */
+.mobile-logo-container,
+.mobile-logo-container img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: none;
 }

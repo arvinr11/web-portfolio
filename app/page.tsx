@@ -132,14 +132,14 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <a href="#portfolio" className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
                 <span className="animate-text-slide-in">See Projects</span>
                 <MoveRight size={20} className="animate-text-slide-in transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
-              <button className="group flex items-center gap-2 px-6 py-3 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              </a>
+              <a href="#contact" className="group flex items-center gap-2 px-6 py-3 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
                 <span className="animate-text-slide-in">Contact Me</span>
                 <MoveRight size={20} className="animate-text-slide-in transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              </a>
             </div>
           </div>
           
@@ -147,13 +147,24 @@ export default function Home() {
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="w-[400px] h-[400px] md:w-[600px] md:h-[600px] flex items-center justify-center">
               {/* Mobile Phone Logo with Animations */}
-              <div className="mobile-logo-container">
+              <div
+                className="mobile-logo-container select-none"
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+                onMouseDown={(e) => e.preventDefault()}
+                onPointerDown={(e) => e.preventDefault()}
+                onTouchStart={(e) => e.preventDefault()}
+              >
                 <Image 
                   src="/mobile-illustrator.png" 
                   alt="Mobile Development Illustration - Two phones showing mobile development" 
                   width={1000}
                   height={1000}
-                  className="w-full h-full object-contain animate-mobile-entrance"
+                  className="w-full h-full object-contain animate-mobile-entrance select-none"
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onPointerDown={(e) => e.preventDefault()}
                   priority
                 />
               </div>
