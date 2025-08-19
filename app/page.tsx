@@ -6,6 +6,7 @@ import Image from 'next/image';
 import BottomNav from './components/BottomNav/BottomNav';
 import ProjectCard from './components/ProjectCard';
 import CertificateCard from './components/CertificateCard';
+import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 
 import { useEffect, useState } from 'react';
 
@@ -196,15 +197,18 @@ export default function Home() {
             {/* Kolom tengah - Kosong untuk spacing */}
             <div className="hidden lg:block"></div>
 
-            {/* Kolom kanan - Lanyard Component */}
+            {/* Kolom kanan - ProfileCard Component */}
             <div className="lg:col-span-1 flex justify-center lg:justify-end">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-2xl flex items-center justify-center">
-                {/* Placeholder untuk Lanyard Component */}
-                <div className="text-white text-center">
-                  <div className="text-2xl font-bold mb-2">Lanyard Component</div>
-                  <div className="text-sm opacity-80">React Bits</div>
-                </div>
-              </div>
+              <ProfileCard
+                avatarUrl="/mobile-illustrator.png"
+                name="Arvin Roeslim"
+                title="Mobile Developer"
+                handle="arvinr11"
+                status="Available for work"
+                contactText="Contact Me"
+                showUserInfo={true}
+                enableTilt={true}
+              />
             </div>
 
           </div>

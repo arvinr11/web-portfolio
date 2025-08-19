@@ -1,0 +1,5 @@
+[33m2198edf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m feat(portfolio): fetch and display certificate data from sanity
+[33m281893c[m feat(portfolio): fetch and display project data from sanity
+[33m399a294[m feat(database): integrate sanity with next js
+[33m12cb569[m feat(footer): add simple footer with copyright
+[33m4b7a27b[m feat(contact): add contact me section with social links
