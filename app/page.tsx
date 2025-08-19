@@ -105,6 +105,28 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    // Reveal on scroll for elements with .reveal-on-scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            el.classList.add('is-visible');
+          } else {
+            el.classList.remove('is-visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       {/* Home Section */}
@@ -126,7 +148,6 @@ export default function Home() {
                 textAlign="center"
               />
             </h1>
-              
             <p className="mt-4 text-xl text-slate-900 dark:text-white max-w-xl mx-auto md:mx-0 animate-text-fade-in">
               A Mobile Developer with experience in Flutter and native Android (Kotlin).
             </p>
@@ -177,8 +198,8 @@ export default function Home() {
       <section id="about" className="py-16 px-6 md:px-10 mt-8">
         <div className="container mx-auto">
           {/* Title di tengah */}
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+          <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
+            <h2 className="text-5xl md:text-6xl font-bold text-blue-600 dark:text-blue-400 mb-4">
               About Me
             </h2>
           </div>
@@ -188,19 +209,23 @@ export default function Home() {
             
             {/* Kolom kiri - Deskripsi */}
             <div className="lg:col-span-1">
-              <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
+              <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
+                <span className="block text-blue-600 dark:text-blue-400">Hello, I'm</span>
+                <span className="block">Arvin Roeslim</span>
+              </h3>
+              <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8 reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
                 I am currently a fifth-semester Mobile Application and Technology (MAT) student at Bina Nusantara (BINUS) University, with a deep passion for mobile development.
               </p>
               
               {/* Button group */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} />
-                  Download CV
+              <div className="reveal-on-scroll flex flex-row flex-nowrap gap-4 items-center justify-start" style={{ animationDelay: '0.35s' }}>
+                <button className="group flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Download size={20} className="reveal-slide-in delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <span className="reveal-slide-in delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
                 </button>
-                <button className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} />
-                  Download Portfolio
+                <button className="group flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Download size={20} className="reveal-slide-in delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <span className="reveal-slide-in delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
                 </button>
               </div>
             </div>
@@ -209,7 +234,7 @@ export default function Home() {
             <div className="hidden lg:block"></div>
 
             {/* Kolom kanan - ProfileCard Component */}
-            <div className="lg:col-span-1 flex justify-center lg:justify-end">
+            <div className="lg:col-span-1 flex justify-center lg:justify-end reveal-on-scroll" style={{ animationDelay: '0.45s' }}>
               <ProfileCard
                 avatarUrl="/mobile-illustrator.png"
                 name="Arvin Roeslim"

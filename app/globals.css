@@ -157,3 +157,31 @@ img, svg {
   -webkit-touch-callout: none;
   touch-action: none;
 }
+
+/* Scroll reveal helpers */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-on-scroll.is-visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Child slide-in (match Home button text/icon style) */
+.reveal-on-scroll .reveal-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-on-scroll.is-visible .reveal-slide-in {
+  animation: textFadeIn 0.8s ease-out forwards;
+}
+
+.reveal-on-scroll.is-visible .reveal-slide-in.delay-1 {
+  animation-delay: 0.6s;
+}
+
+.reveal-on-scroll.is-visible .reveal-slide-in.delay-2 {
+  animation-delay: 0.8s;
+}
