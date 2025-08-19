@@ -323,55 +323,22 @@ export default function Home() {
             {/* Certificates Content */}
             {activeTab === 'certificates' && (
               <div className="animate-fade-in">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Certificate 1 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg mb-4 flex items-center justify-center">
-                      <Award size={48} className="text-white" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      Flutter Development
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-2">
-                      Google Developer Certification
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-500">
-                      Issued: 2024
-                    </p>
+                {loading ? (
+                  <div className="text-center py-8">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                    <p className="mt-4 text-slate-600 dark:text-slate-400">Loading certificates...</p>
                   </div>
-
-                  {/* Certificate 2 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg mb-4 flex items-center justify-center">
-                      <Award size={48} className="text-white" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      Android Development
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-2">
-                      Google Android Developer
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-500">
-                      Issued: 2023
-                    </p>
+                ) : certificates.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {certificates.map((certificate) => (
+                      <CertificateCard key={certificate._id} certificate={certificate} />
+                    ))}
                   </div>
-
-                  {/* Certificate 3 */}
-                  <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                    <div className="w-full h-32 bg-gradient-to-br from-green-400 to-teal-500 rounded-lg mb-4 flex items-center justify-center">
-                      <Award size={48} className="text-white" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                      Mobile App Development
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-2">
-                      BINUS University
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-500">
-                      Issued: 2023
-                    </p>
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-slate-600 dark:text-slate-400">No certificates found</p>
                   </div>
-                </div>
+                )}
               </div>
             )}
 

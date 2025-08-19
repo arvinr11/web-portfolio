@@ -64,20 +64,13 @@ export const certificateQueries = {
   // Get all certificates
   all: `*[_type == "certificate"] {
     _id,
-    title,
-    issuer,
-    dateIssued,
     "imageUrl": image.asset->url
   }`,
 
-  // Get certificates by year
-  byYear: `*[_type == "certificate" && dateTime(dateIssued) >= dateTime($startDate) && dateTime(dateIssued) <= dateTime($endDate)] | order(dateIssued desc) {
+  // Get certificates by order (if needed later)
+  byOrder: `*[_type == "certificate"] | order(_createdAt desc) {
     _id,
-    title,
-    issuer,
-    dateIssued,
-    "imageUrl": image.asset->url,
-    credentialId
+    "imageUrl": image.asset->url
   }`
 }
 
