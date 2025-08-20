@@ -15,6 +15,7 @@ export default function Home() {
   const [projects, setProjects] = useState<any[]>([]);
   const [certificates, setCertificates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [visibleProjects, setVisibleProjects] = useState(3);
   
   useEffect(() => {
     // Fetch data from Sanity
@@ -26,14 +27,7 @@ export default function Home() {
         const projectsData = await client.fetch(projectQueries.all);
         const certificatesData = await client.fetch(certificateQueries.all);
         
-        // Sort projects: featured first, then by year (newest first)
-        const sortedProjects = projectsData.sort((a: any, b: any) => {
-          if (a.featured && !b.featured) return -1;
-          if (!a.featured && b.featured) return 1;
-          return (b.yearCreated || 0) - (a.yearCreated || 0);
-        });
-        
-        setProjects(sortedProjects);
+        setProjects(projectsData);
         setCertificates(certificatesData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -347,11 +341,29 @@ export default function Home() {
                     <p className="mt-4 text-slate-600 dark:text-slate-400">Loading projects...</p>
                   </div>
                 ) : projects.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
-                    {projects.map((project) => (
-                      <ProjectCard key={project._id} project={project} />
-                    ))}
-                  </div>
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
+                      {projects.slice(0, visibleProjects).map((project) => (
+                        <ProjectCard key={project._id} project={project} />
+                      ))}
+                    </div>
+                    {projects.length > 0 && (
+                      <div className="mt-6 flex justify-center">
+                        <button
+                          onClick={() => {
+                            if (visibleProjects >= projects.length) {
+                              setVisibleProjects(3)
+                            } else {
+                              setVisibleProjects((v) => Math.min(v + 6, projects.length))
+                            }
+                          }}
+                          className={`px-5 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium shadow-md bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white hover:shadow-lg hover:scale-[1.02]`}
+                        >
+                          {visibleProjects >= projects.length ? 'Show less' : 'Show more'}
+                        </button>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div className="text-center py-8">
                     <p className="text-slate-600 dark:text-slate-400">No projects found</p>

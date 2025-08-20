@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { Pin } from 'lucide-react'
 
 interface ProjectCardProps {
   project: {
@@ -15,6 +16,7 @@ interface ProjectCardProps {
       alt: string
       isMain: boolean
     }>
+    featured?: boolean
   }
 }
 
@@ -25,6 +27,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <div className="group border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full h-full">
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden m-4 rounded-xl">
+        {project.featured && (
+          <div className="absolute top-3 left-3 z-10" aria-label="Pinned project" title="Pinned">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md ring-1 ring-white/20 backdrop-blur-sm">
+              <Pin size={12} className="text-white" />
+              Pinned
+            </span>
+          </div>
+        )}
         {mainImage ? (
           <Image
             src={mainImage.url}

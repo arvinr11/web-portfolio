@@ -1,7 +1,7 @@
 // Project Queries
 export const projectQueries = {
   // Get all projects
-  all: `*[_type == "project"] {
+  all: `*[_type == "project"] | order(featured desc, _createdAt desc) {
     _id,
     title,
     description,
@@ -9,6 +9,8 @@ export const projectQueries = {
       iconUrl
     },
     category,
+    "featured": coalesce(featured, pinned, false),
+    _createdAt,
     "images": images[] {
       "url": image.asset->url,
       alt,
