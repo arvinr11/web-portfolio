@@ -256,26 +256,26 @@ export default function Home() {
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4">
               Portfolio Showcase
             </h2>
           </div>
 
           {/* 3 Kotak Portfolio */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 md:px-4 mb-4">
             {/* Projects Tab */}
             <button
               onClick={() => setActiveTab('projects')}
-              className={`p-6 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
+              className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'projects'
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
                   : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
               }`}
             >
-              <div className="text-center">
+              <div className="flex flex-col items-center justify-center text-center gap-1">
                 <FolderOpen 
-                  size={48} 
-                  className={`mx-auto mb-4 ${
+                  size={32} 
+                  className={`mx-auto ${
                     activeTab === 'projects' 
                       ? 'text-blue-600 dark:text-blue-400' 
                       : 'text-gray-600 dark:text-gray-400'
@@ -290,16 +290,16 @@ export default function Home() {
             {/* Certificates Tab */}
             <button
               onClick={() => setActiveTab('certificates')}
-              className={`p-6 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
+              className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'certificates'
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
                   : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
               }`}
             >
-              <div className="text-center">
+              <div className="flex flex-col items-center justify-center text-center gap-1">
                 <Award 
-                  size={48} 
-                  className={`mx-auto mb-4 ${
+                  size={32} 
+                  className={`mx-auto ${
                     activeTab === 'certificates' 
                       ? 'text-blue-600 dark:text-blue-400' 
                       : 'text-gray-600 dark:text-gray-400'
@@ -314,16 +314,16 @@ export default function Home() {
             {/* Tech Stack Tab */}
             <button
               onClick={() => setActiveTab('techstack')}
-              className={`p-6 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
+              className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'techstack'
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
                   : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
               }`}
             >
-              <div className="text-center">
+              <div className="flex flex-col items-center justify-center text-center gap-1">
                 <Code 
-                  size={48} 
-                  className={`mx-auto mb-4 ${
+                  size={32} 
+                  className={`mx-auto ${
                     activeTab === 'techstack' 
                       ? 'text-blue-600 dark:text-blue-400' 
                       : 'text-gray-600 dark:text-gray-400'
@@ -347,7 +347,7 @@ export default function Home() {
                     <p className="mt-4 text-slate-600 dark:text-slate-400">Loading projects...</p>
                   </div>
                 ) : projects.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
                     {projects.map((project) => (
                       <ProjectCard key={project._id} project={project} />
                     ))}
@@ -369,7 +369,7 @@ export default function Home() {
                     <p className="mt-4 text-slate-600 dark:text-slate-400">Loading certificates...</p>
                   </div>
                 ) : certificates.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
                     {certificates.map((certificate) => (
                       <CertificateCard key={certificate._id} certificate={certificate} />
                     ))}
@@ -385,123 +385,123 @@ export default function Home() {
             {/* Tech Stack Content */}
             {activeTab === 'techstack' && (
               <div className="animate-fade-in">
-                <div className="grid grid-cols-6 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-2 md:px-4 max-w-6xl mx-auto items-stretch">
                   {/* Dart */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
                       <Image 
                         src="/tech-logos/dart.svg"
                         alt="Dart icon"
                         width={96}
                         height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
                       Dart
                     </span>
                   </div>
 
                   {/* Flutter */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
                       <Image 
                         src="/tech-logos/flutter.svg"
                         alt="Flutter icon"
                         width={96}
                         height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
                       Flutter
                     </span>
                   </div>
 
-                  {/* Node.js */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-green-500 to-green-600 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
-                      <Image 
-                        src="/tech-logos/nodejs.svg"
-                        alt="Node.js icon"
-                        width={96}
-                        height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
-                      />
-                    </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
-                      Node.js
-                    </span>
-                  </div>
-
-                  {/* Kotlin */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
-                      <Image 
-                        src="/tech-logos/kotlin.svg"
-                        alt="Kotlin icon"
-                        width={96}
-                        height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
-                      />
-                    </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
-                      Kotlin
-                    </span>
-                  </div>
-
-                  {/* GitHub */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-white to-gray-200 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300 -z-10"></div>
-                      <Image 
-                        src="/tech-logos/github.svg"
-                        alt="GitHub icon"
-                        width={96}
-                        height={96}
-                        className="relative z-10 h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
-                      />
-                    </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
-                      GitHub
-                    </span>
-                  </div>
-
-                  {/* Figma */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
-                      <Image 
-                        src="/tech-logos/figma.svg"
-                        alt="Figma icon"
-                        width={96}
-                        height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
-                      />
-                    </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
-                      Figma
-                    </span>
-                  </div>
-
                   {/* Firebase */}
-                  <div className="group w-44 h-44 p-8 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-4 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
                       <Image 
                         src="/tech-logos/firebase.svg"
                         alt="Firebase icon"
                         width={96}
                         height={96}
-                        className="relative h-20 w-20 md:h-24 md:w-24 transform transition-transform duration-300"
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
-                    <span className="text-slate-300 font-bold text-base md:text-lg tracking-wide group-hover:text-white transition-colors duration-300">
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
                       Firebase
+                    </span>
+                  </div>
+
+                  {/* Node.js */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/nodejs.svg"
+                        alt="Node.js icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      Node.js
+                    </span>
+                  </div>
+
+                  {/* GitHub */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-white to-gray-200 rounded-full opacity-0 group-hover:opacity-60 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/github.svg"
+                        alt="GitHub icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      GitHub
+                    </span>
+                  </div>
+
+                  {/* Figma */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-500 to-pink-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/figma.svg"
+                        alt="Figma icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      Figma
+                    </span>
+                  </div>
+
+                  {/* Kotlin */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-orange-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/kotlin.svg"
+                        alt="Kotlin icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      Kotlin
                     </span>
                   </div>
                 </div>

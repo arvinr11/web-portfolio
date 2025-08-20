@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const mainImage = project.images?.find(img => img.isMain) || project.images?.[0]
 
   return (
-    <div className="group border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300">
+    <div className="group border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full h-full">
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden m-4 rounded-xl">
         {mainImage ? (
@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
           {/* Button Details - Right */}
-          <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 hover:scale-110 text-white rounded-lg transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg">
+          <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 hover:scale-110 text-white rounded-lg transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg">
             Details →
           </button>
         </div>
