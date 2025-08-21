@@ -9,7 +9,7 @@ import CertificateCard from './components/CertificateCard';
 import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('projects');
@@ -17,6 +17,11 @@ export default function Home() {
   const [certificates, setCertificates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleProjects, setVisibleProjects] = useState(3);
+  const previousTabRef = useRef<string>(activeTab);
+  const [tabTransition, setTabTransition] = useState<'none' | 'left' | 'right'>('none');
+  const lastScrollYRef = useRef(0);
+  const lastDirRef = useRef<'down' | 'up'>('down');
+  const lastResetTimeRef = useRef(0);
   
   useEffect(() => {
     // Fetch data from Sanity
@@ -101,26 +106,88 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Reveal on scroll for elements with .reveal-on-scroll
+    let lastScrollY = window.scrollY;
     const observer = new IntersectionObserver(
       (entries) => {
+        const scrollingDown = window.scrollY >= lastScrollY;
         entries.forEach((entry) => {
           const el = entry.target as HTMLElement;
-          if (entry.isIntersecting) {
+          const entering = entry.isIntersecting && entry.intersectionRatio > 0.2;
+
+          if (!entering) return;
+
+          const alreadyAnimated = el.getAttribute('data-animated') === 'true';
+
+          if (scrollingDown && !alreadyAnimated) {
+            // First time seen while scrolling down → animate once
+            el.classList.remove('no-anim');
             el.classList.add('is-visible');
+            el.setAttribute('data-animated', 'true');
+            observer.unobserve(el);
           } else {
-            el.classList.remove('is-visible');
+            // Entering from bottom or already animated → show without animation
+            el.classList.add('no-anim');
+            el.classList.add('is-visible');
           }
         });
+        lastScrollY = window.scrollY;
       },
-      { threshold: 0.15 }
+      { threshold: [0.2], rootMargin: '-10% 0px -10% 0px' }
     );
 
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    const observeAll = () => {
+      const elements = document.querySelectorAll('.reveal-on-scroll');
+      elements.forEach((el) => observer.observe(el));
+    };
+    observeAll();
+
+    // Reset animations when direction changes (with debounce) or at top
+    const handleDirectionalReset = () => {
+      const now = Date.now();
+      const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const dir: 'down' | 'up' = y >= lastScrollYRef.current ? 'down' : 'up';
+      const dirChanged = dir !== lastDirRef.current;
+      lastScrollYRef.current = y;
+      if (dirChanged || y <= 0) {
+        // debounce 300ms to avoid thrash
+        if (now - lastResetTimeRef.current < 300) return;
+        lastResetTimeRef.current = now;
+        const els = document.querySelectorAll('.reveal-on-scroll');
+        els.forEach((el) => {
+          const node = el as HTMLElement;
+          const rect = node.getBoundingClientRect();
+          const viewportH = window.innerHeight || document.documentElement.clientHeight;
+          const inView = rect.top < viewportH && rect.bottom > 0;
+          if (inView) {
+            // Do not reset elements currently visible on screen
+            return;
+          }
+          // Elements out of view can reset fully so next enter animates again
+          node.classList.remove('is-visible');
+          node.classList.remove('no-anim');
+          node.removeAttribute('data-animated');
+          observer.observe(node);
+        });
+        lastDirRef.current = dir;
+      }
+    };
+    window.addEventListener('scroll', handleDirectionalReset, { passive: true });
 
     return () => observer.disconnect();
   }, []);
+
+  // Determine horizontal transition direction when switching tabs
+  useEffect(() => {
+    const order = ['projects', 'certificates', 'techstack'];
+    const prev = previousTabRef.current;
+    if (prev === activeTab) {
+      setTabTransition('none');
+      return;
+    }
+    const dir = order.indexOf(activeTab) > order.indexOf(prev) ? 'right' : 'left';
+    setTabTransition(dir as 'left' | 'right');
+    previousTabRef.current = activeTab;
+  }, [activeTab]);
 
   return (
     <main>
@@ -250,14 +317,14 @@ export default function Home() {
       <section id="portfolio" className="py-16 px-6 md:px-10">
         <div className="container mx-auto">
           {/* Title di tengah */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4">
               Portfolio Showcase
             </h2>
           </div>
 
           {/* 3 Kotak Portfolio */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 md:px-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 md:px-4 mb-4 reveal-on-scroll" style={{ animationDelay: '0.12s' }}>
             {/* Projects Tab */}
             <button
               onClick={() => setActiveTab('projects')}
@@ -332,10 +399,10 @@ export default function Home() {
           </div>
 
           {/* Content Area dengan Animasi */}
-          <div className="min-h-[400px]">
+          <div className="min-h-[400px] tab-switch-container reveal-on-scroll" style={{ animationDelay: '0.2s' }}>
             {/* Projects Content */}
             {activeTab === 'projects' && (
-              <div className="animate-fade-in">
+              <div className={`tab-switch-content animate-fade-in ${tabTransition === 'right' ? 'animate-tab-in-right' : tabTransition === 'left' ? 'animate-tab-in-left' : ''}`}>
                 {loading ? (
                   <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
@@ -375,7 +442,7 @@ export default function Home() {
 
             {/* Certificates Content */}
             {activeTab === 'certificates' && (
-              <div className="animate-fade-in">
+              <div className={`tab-switch-content animate-fade-in ${tabTransition === 'right' ? 'animate-tab-in-right' : 'animate-tab-in-left'}`}>
                 {loading ? (
                   <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
@@ -397,7 +464,7 @@ export default function Home() {
 
             {/* Tech Stack Content */}
             {activeTab === 'techstack' && (
-              <div className="animate-fade-in">
+              <div className={`tab-switch-content animate-fade-in ${tabTransition === 'right' ? 'animate-tab-in-right' : 'animate-tab-in-left'}`}>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-2 md:px-4 max-w-6xl mx-auto items-stretch">
                   {/* Dart */}
                   <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">

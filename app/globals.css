@@ -168,6 +168,13 @@ img, svg {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
+/* Force visible without animation (used when entering from bottom while scrolling up) */
+.no-anim {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Child slide-in (match Home button text/icon style) */
 .reveal-on-scroll .reveal-slide-in {
   opacity: 0;
@@ -184,4 +191,33 @@ img, svg {
 
 .reveal-on-scroll.is-visible .reveal-slide-in.delay-2 {
   animation-delay: 0.8s;
+}
+
+/* Tab switch animations (horizontal) */
+@keyframes tabInLeft {
+  from { transform: translateX(-16px); }
+  to { transform: translateX(0); }
+}
+
+@keyframes tabInRight {
+  from { transform: translateX(16px); }
+  to { transform: translateX(0); }
+}
+
+.animate-tab-in-left {
+  animation: tabInLeft 0.35s ease-out both;
+}
+
+.animate-tab-in-right {
+  animation: tabInRight 0.35s ease-out both;
+}
+
+/* Horizontal slide container for tab switching */
+.tab-switch-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-switch-content {
+  will-change: transform, opacity;
 }
