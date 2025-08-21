@@ -594,14 +594,14 @@ export default function Home() {
       {/* Contact Me Section */}
       <section id="contact" className="py-16 px-6 md:px-10 mb-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
             Contact Me
           </h2>
           
           {/* Contact Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
             {/* Email */}
-            <a href="mailto:roeslimarvin@gmail.com" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <a href="mailto:roeslimarvin@gmail.com" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
               <SpotlightCard spotlightColor="rgba(234, 67, 53, 0.28)" className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-slate-900/20 p-8">
                 <div className="w-20 h-20 rounded-2xl mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg bg-white">
                   <div className="w-full h-full rounded-2xl flex items-center justify-center">
@@ -616,7 +616,7 @@ export default function Home() {
             </a>
 
             {/* LinkedIn */}
-            <a href="https://www.linkedin.com/in/arvinroeslim" target="_blank" rel="noopener noreferrer" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <a href="https://www.linkedin.com/in/arvinroeslim" target="_blank" rel="noopener noreferrer" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
               <SpotlightCard spotlightColor="rgba(10, 102, 194, 0.35)" className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-slate-900/20 p-8">
                 <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -631,7 +631,7 @@ export default function Home() {
             </a>
 
             {/* GitHub */}
-            <a href="https://github.com/arvinr11" target="_blank" rel="noopener noreferrer" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <a href="https://github.com/arvinr11" target="_blank" rel="noopener noreferrer" className="group block transition-transform duration-300 hover:scale-105 cursor-pointer reveal-on-scroll" style={{ animationDelay: '0.35s' }}>
               <SpotlightCard spotlightColor="rgba(255, 255, 255, 0.30)" className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-slate-900/20 p-8">
                 <div className="w-20 h-20 bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
