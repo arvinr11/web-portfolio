@@ -1,6 +1,7 @@
 "use client";
 
 import SplitText from "./components/TextAnimations/SplitText/SplitText";
+import TextType from "./components/TextAnimations/TextType/TextType";
 import {MoveRight, Download, FolderOpen, Award, Code} from 'lucide-react';
 import Image from 'next/image';
 import BottomNav from './components/BottomNav/BottomNav';
@@ -272,7 +273,17 @@ export default function Home() {
             {/* Kolom kiri - Deskripsi */}
             <div className="lg:col-span-1">
               <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
-                <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent">Hello, I'm</span>
+                <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent">
+                  <TextType 
+                    text={["Hello I am", "你好，我叫"]}
+                    typingSpeed={200}
+                    pauseDuration={2000}
+                    deletingSpeed={90}
+                    showCursor={true}
+                    cursorCharacter="|"
+                    textColors={["#0ea5e9"]}
+                  />
+                </span>
                 <span className="block">Arvin Roeslim</span>
               </h3>
               <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8 reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
@@ -281,13 +292,13 @@ export default function Home() {
               
               {/* Button group */}
               <div className="reveal-on-scroll flex flex-row flex-nowrap gap-4 items-center justify-start" style={{ animationDelay: '0.35s' }}>
-                <button className="group flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} className="reveal-slide-in delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
-                  <span className="reveal-slide-in delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
+                <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
                 </button>
-                <button className="group flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} className="reveal-slide-in delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
-                  <span className="reveal-slide-in delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
+                <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
                 </button>
               </div>
             </div>

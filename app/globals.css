@@ -93,6 +93,59 @@ body {
   filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));
 }
 
+/* Button reveal animation - controlled by IntersectionObserver */
+@keyframes buttonReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.button-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.button-reveal.is-visible .button-icon {
+  animation: buttonIconSlideIn 0.3s ease-out 0.1s forwards;
+}
+
+.button-reveal.is-visible .button-text {
+  animation: buttonTextSlideIn 0.3s ease-out 0.2s forwards;
+}
+
+@keyframes buttonIconSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonTextSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Text slide in animation */
 @keyframes textSlideIn {
   0% {
@@ -191,6 +244,58 @@ img, svg {
 
 .reveal-on-scroll.is-visible .reveal-slide-in.delay-2 {
   animation-delay: 0.8s;
+}
+
+/* Button icon and text reveal - controlled separately with current entrance animation */
+.reveal-on-scroll .button-icon-reveal,
+.reveal-on-scroll .button-text-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-on-scroll.is-visible .button-icon-reveal.delay-1 {
+  animation: textFadeIn 0.8s ease-out 0.6s forwards;
+}
+
+.reveal-on-scroll.is-visible .button-text-reveal.delay-2 {
+  animation: textFadeIn 0.8s ease-out 0.8s forwards;
+}
+
+/* Force visible without animation when scrolling from bottom - MORE AGGRESSIVE */
+.reveal-on-scroll.no-anim .button-icon-reveal,
+.reveal-on-scroll.no-anim .button-text-reveal {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Additional override to ensure no animation from bottom */
+.reveal-on-scroll.no-anim .button-icon-reveal.delay-1,
+.reveal-on-scroll.no-anim .button-text-reveal.delay-2 {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* ULTIMATE OVERRIDE - No animation at all when no-anim is present */
+.reveal-on-scroll.no-anim * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Specific button override - ensure no animation from bottom */
+.reveal-on-scroll.no-anim .button-icon-reveal,
+.reveal-on-scroll.no-anim .button-text-reveal,
+.reveal-on-scroll.no-anim .button-icon-reveal.delay-1,
+.reveal-on-scroll.no-anim .button-text-reveal.delay-2 {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation-delay: 0s !important;
+  animation-duration: 0s !important;
 }
 
 /* Tab switch animations (horizontal) */
