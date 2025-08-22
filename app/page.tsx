@@ -159,15 +159,19 @@ export default function Home() {
           const rect = node.getBoundingClientRect();
           const viewportH = window.innerHeight || document.documentElement.clientHeight;
           const inView = rect.top < viewportH && rect.bottom > 0;
-          if (inView) {
-            // Do not reset elements currently visible on screen
-            return;
+          // Always reset when scrolling to top (y <= 0)
+          if (y <= 0) {
+            node.classList.remove('is-visible');
+            node.classList.remove('no-anim');
+            node.removeAttribute('data-animated');
+            observer.observe(node);
+          } else if (!inView) {
+            // Elements out of view can reset fully so next enter animates again
+            node.classList.remove('is-visible');
+            node.classList.remove('no-anim');
+            node.removeAttribute('data-animated');
+            observer.observe(node);
           }
-          // Elements out of view can reset fully so next enter animates again
-          node.classList.remove('is-visible');
-          node.classList.remove('no-anim');
-          node.removeAttribute('data-animated');
-          observer.observe(node);
         });
         lastDirRef.current = dir;
       }
@@ -193,7 +197,7 @@ export default function Home() {
   return (
     <main>
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-10">
+      <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-10 mb-32">
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-8xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 dark:text-white">
@@ -258,11 +262,11 @@ export default function Home() {
       </section>
       
       {/* About Me Section */}
-      <section id="about" className="py-16 px-6 md:px-10 mt-8">
+      <section id="about" className="pt-15 pb-8 px-6 md:px-10 -mt-48">
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
               About Me
             </h2>
           </div>
@@ -291,7 +295,7 @@ export default function Home() {
               </p>
               
               {/* Button group */}
-              <div className="reveal-on-scroll flex flex-row flex-nowrap gap-4 items-center justify-start" style={{ animationDelay: '0.35s' }}>
+              <div className="reveal-on-scroll flex flex-row flex-nowrap gap-4 items-center justify-start" style={{ animationDelay: '0.05s' }}>
                 <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
                   <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
@@ -325,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-16 px-6 md:px-10">
+      <section id="portfolio" className="py-8 px-6 md:px-10">
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
@@ -603,7 +607,7 @@ export default function Home() {
       </section>
 
       {/* Contact Me Section */}
-      <section id="contact" className="py-16 px-6 md:px-10 mb-8">
+      <section id="contact" className="py-8 px-6 md:px-10 mb-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
             Contact Me

@@ -254,11 +254,11 @@ img, svg {
 }
 
 .reveal-on-scroll.is-visible .button-icon-reveal.delay-1 {
-  animation: textFadeIn 0.8s ease-out 0.6s forwards;
+  animation: textFadeIn 0.6s ease-out 0.2s forwards;
 }
 
 .reveal-on-scroll.is-visible .button-text-reveal.delay-2 {
-  animation: textFadeIn 0.8s ease-out 0.8s forwards;
+  animation: textFadeIn 0.6s ease-out 0.4s forwards;
 }
 
 /* Force visible without animation when scrolling from bottom - MORE AGGRESSIVE */
