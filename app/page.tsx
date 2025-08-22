@@ -261,7 +261,7 @@ export default function Home() {
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
-            <h2 className="text-5xl md:text-6xl font-bold text-blue-600 dark:text-blue-400 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4">
               About Me
             </h2>
           </div>
@@ -272,7 +272,7 @@ export default function Home() {
             {/* Kolom kiri - Deskripsi */}
             <div className="lg:col-span-1">
               <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
-                <span className="block text-blue-600 dark:text-blue-400">Hello, I'm</span>
+                <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent">Hello, I'm</span>
                 <span className="block">Arvin Roeslim</span>
               </h3>
               <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8 reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
