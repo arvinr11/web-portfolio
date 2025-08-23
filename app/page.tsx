@@ -9,6 +9,7 @@ import ProjectCard from './components/ProjectCard';
 import CertificateCard from './components/CertificateCard';
 import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard';
+import Aurora from './components/Backgrounds/Aurora/Aurora';
 
 import { useEffect, useState, useRef } from 'react';
 
@@ -195,7 +196,17 @@ export default function Home() {
   }, [activeTab]);
 
   return (
-    <main>
+    <main className="relative">
+      {/* Aurora Background - Main */}
+      <div className="fixed inset-0 -z-10">
+        <Aurora
+          colorStops={["#1e40af", "#3b82f6", "#0ea5e9"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.5}
+        />
+      </div>
+      
       {/* Home Section */}
       <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-10 mb-32">
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
