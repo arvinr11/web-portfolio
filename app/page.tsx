@@ -7,6 +7,7 @@ import Image from 'next/image';
 import BottomNav from './components/BottomNav/BottomNav';
 import ProjectCard from './components/ProjectCard';
 import CertificateCard from './components/CertificateCard';
+import CertificateModal from './components/CertificateModal';
 import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard';
 import Aurora from './components/Backgrounds/Aurora/Aurora';
@@ -21,10 +22,24 @@ export default function Home() {
   const [visibleProjects, setVisibleProjects] = useState(3);
   const previousTabRef = useRef<string>(activeTab);
   const [tabTransition, setTabTransition] = useState<'none' | 'left' | 'right'>('none');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImageUrl, setModalImageUrl] = useState('');
   const lastScrollYRef = useRef(0);
   const lastDirRef = useRef<'down' | 'up'>('down');
   const lastResetTimeRef = useRef(0);
   
+  // Event handler untuk membuka modal sertifikat
+  const handleCertificateClick = (imageUrl: string) => {
+    setModalImageUrl(imageUrl);
+    setModalOpen(true);
+  };
+
+  // Event handler untuk menutup modal
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setModalImageUrl('');
+  };
+
   useEffect(() => {
     // Fetch data from Sanity
     async function fetchData() {
@@ -477,7 +492,11 @@ export default function Home() {
                 ) : certificates.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
                     {certificates.map((certificate) => (
-                      <CertificateCard key={certificate._id} certificate={certificate} />
+                      <CertificateCard 
+                        key={certificate._id} 
+                        certificate={certificate} 
+                        onClick={() => handleCertificateClick(certificate.imageUrl)}
+                      />
                     ))}
                   </div>
                 ) : (
@@ -690,6 +709,14 @@ export default function Home() {
         
         {/* Bottom Navigation */}
       <BottomNav />
+
+      {/* Certificate Modal */}
+      {modalOpen && (
+        <CertificateModal 
+          imageUrl={modalImageUrl} 
+          onClose={handleCloseModal} 
+        />
+      )}
     </main>
   );  
 }
