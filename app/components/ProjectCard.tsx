@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Pin } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 interface ProjectCardProps {
   project: {
@@ -17,11 +18,24 @@ interface ProjectCardProps {
       isMain: boolean
     }>
     featured?: boolean
+    slug?: {
+      current: string
+    }
   }
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const router = useRouter()
   const mainImage = project.images?.find(img => img.isMain) || project.images?.[0]
+
+  const handleViewDetails = () => {
+    if (project.slug?.current) {
+      router.push(`/projects/${project.slug.current}`)
+    } else {
+      console.error('Project slug is missing:', project)
+      // Fallback: could redirect to a generic projects page or show error
+    }
+  }
 
   return (
     <div className="group border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full h-full">
@@ -85,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
           {/* Button Details - Right */}
-          <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 hover:scale-110 text-white rounded-lg transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg">
+          <button onClick={handleViewDetails} className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 hover:scale-110 text-white rounded-lg transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg">
             Details →
           </button>
         </div>

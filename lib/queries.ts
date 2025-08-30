@@ -4,6 +4,7 @@ export const projectQueries = {
   all: `*[_type == "project"] | order(featured desc, _createdAt desc) {
     _id,
     title,
+    slug,
     description,
     "technologies": technologies[] {
       iconUrl
