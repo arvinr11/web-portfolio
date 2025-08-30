@@ -11,6 +11,7 @@ import CertificateModal from './components/CertificateModal';
 import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard';
 import Aurora from './components/Backgrounds/Aurora/Aurora';
+import Footer from './components/Footer/Footer';
 
 import { useEffect, useState, useRef } from 'react';
 
@@ -695,17 +696,8 @@ export default function Home() {
         </div>
       </section>
       
-        {/* Footer Divider */}
-        <div className="max-w-8xl mx-auto px-4 md:px-6 mt-8 mb-2">
-          <div className="h-[2px] rounded-full bg-gradient-to-r from-transparent via-slate-400/60 to-transparent" />
-        </div>
-
-        {/* Footer */}
-        <div className="text-center pt-4 pb-8 mb-20">
-          <p className="text-slate-400 text-sm">
-            © 2025 Arvin Roeslim. All rights reserved.
-          </p>
-        </div>
+        {/* Footer Component */}
+        <Footer hasBottomNav={true} />
         
         {/* Bottom Navigation */}
       <BottomNav />

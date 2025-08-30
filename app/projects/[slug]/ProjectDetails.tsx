@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Aurora from '../../components/Backgrounds/Aurora/Aurora';
+import Footer from '../../components/Footer/Footer';
 
 interface Project {
   _id: string
@@ -70,7 +71,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
       </div>
 
       {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-24 pb-0">
         {/* Project Title - Above everything */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-800 dark:text-slate-100 leading-tight mb-8">
           {project.title}
@@ -178,6 +179,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
             ))}
           </div>
         </div>
+        
+        {/* Footer Component */}
+        <Footer hasBottomNav={false} topMargin="large" />
       </div>
     </div>
   )
