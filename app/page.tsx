@@ -83,8 +83,35 @@ export default function Home() {
       }, 100);
     };
 
-    // Jalankan scroll to top
-    scrollToTop();
+    // Cek apakah ada hash di URL (misalnya #portfolio)
+    const hasHash = window.location.hash;
+    
+    // Cek apakah user datang dari project detail page
+    const shouldScrollToPortfolio = sessionStorage.getItem('scrollToPortfolio');
+    const preventScrollToTop = sessionStorage.getItem('preventScrollToTop');
+    
+    if (shouldScrollToPortfolio) {
+      // Hapus flag
+      sessionStorage.removeItem('scrollToPortfolio');
+      sessionStorage.removeItem('preventScrollToTop');
+      
+      // Scroll ke portfolio section dengan delay minimal
+      setTimeout(() => {
+        const portfolioSection = document.getElementById('portfolio');
+        if (portfolioSection) {
+          const offset = 100; // Offset untuk bottom navbar
+          const targetPosition = portfolioSection.offsetTop - offset;
+          // Gunakan instant scroll tanpa animasi
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'instant'
+          });
+        }
+      }, 10); // Delay minimal
+    } else if (!hasHash && !preventScrollToTop) {
+      // Hanya scroll ke atas jika tidak ada hash dan tidak ada flag prevent
+      scrollToTop();
+    }
     
     // Tambahan: handle scroll restoration
     if ('scrollRestoration' in history) {

@@ -61,13 +61,20 @@ export default function ProjectDetails({ project }: { project: Project }) {
 
       {/* Back Button - Top Left Corner */}
       <div className="absolute top-6 left-6 z-10">
-        <Link
-          href="/"
+        <button
+          onClick={() => {
+            // Langsung set posisi scroll ke portfolio section
+            sessionStorage.setItem('scrollToPortfolio', 'true');
+            // Tambahkan flag untuk mencegah scroll ke atas
+            sessionStorage.setItem('preventScrollToTop', 'true');
+            // Gunakan path tanpa hash untuk menghindari scroll restoration
+            window.location.href = '/';
+          }}
           className="inline-flex items-center gap-3 px-4 py-3 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
         >
           <ArrowLeft size={20} className="text-slate-700 dark:text-slate-200" />
           <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Back</span>
-        </Link>
+        </button>
       </div>
 
       {/* Main Content Container */}
