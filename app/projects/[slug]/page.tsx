@@ -1,19 +1,6 @@
 import { client } from '../../../lib/client'
 import { projectQueries } from '../../../lib/queries'
-import dynamic from 'next/dynamic'
-
-// Dynamic import untuk ProjectDetails component
-const ProjectDetails = dynamic(() => import('./ProjectDetails'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500 mx-auto mb-4"></div>
-        <p className="text-slate-500 dark:text-slate-400">Loading project details...</p>
-      </div>
-    </div>
-  )
-})
+import ProjectDetails from './ProjectDetails'
 
 interface Project {
   _id: string
