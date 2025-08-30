@@ -62,10 +62,10 @@ export default function ProjectDetails({ project }: { project: Project }) {
       <div className="absolute top-6 left-6 z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-3 px-4 py-2 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md rounded-lg shadow-lg border border-white/20 dark:border-slate-700/20 hover:bg-white/30 dark:hover:bg-slate-700/30 transition-all duration-300"
+          className="inline-flex items-center gap-3 px-4 py-3 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
         >
-          <ArrowLeft size={18} className="text-slate-700 dark:text-slate-200" />
-          <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Back</span>
+          <ArrowLeft size={20} className="text-slate-700 dark:text-slate-200" />
+          <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Back</span>
         </Link>
       </div>
 
@@ -96,7 +96,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                     {/* Left Arrow */}
                     <button 
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30 dark:hover:bg-slate-700/30 border border-white/20 dark:border-slate-700/20 cursor-pointer"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 border-2 border-white/60 dark:border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
                     >
                       <ChevronLeft className="w-5 h-5 text-slate-700 dark:text-slate-200" />
                     </button>
@@ -104,7 +104,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                     {/* Right Arrow */}
                     <button 
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30 dark:hover:bg-slate-700/30 border border-white/20 dark:border-slate-700/20 cursor-pointer"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 border-2 border-white/60 dark:border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
                     >
                       <ChevronRight className="w-5 h-5 text-slate-700 dark:text-slate-200" />
                     </button>
@@ -140,7 +140,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-4 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md text-slate-700 dark:text-slate-200 rounded-lg hover:bg-white/30 dark:hover:bg-slate-700/30 transition-all duration-300 shadow-xl border border-white/20 dark:border-slate-700/20 hover:shadow-2xl"
+                  className="inline-flex items-center gap-3 px-7 py-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md text-slate-700 dark:text-slate-200 rounded-xl shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
                 >
                   <Github size={22} />
                   <span className="text-lg font-semibold">GitHub</span>
