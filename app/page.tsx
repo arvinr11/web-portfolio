@@ -399,8 +399,8 @@ export default function Home() {
               onClick={() => setActiveTab('projects')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'projects'
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
+                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
@@ -423,8 +423,8 @@ export default function Home() {
               onClick={() => setActiveTab('certificates')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'certificates'
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
+                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
@@ -447,8 +447,8 @@ export default function Home() {
               onClick={() => setActiveTab('techstack')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'techstack'
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
+                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
