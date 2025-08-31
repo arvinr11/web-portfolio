@@ -100,3 +100,22 @@ export const skillQueries = {
     order
   }`
 }
+
+// CV & Portfolio Queries
+export const cvQueries = {
+  // Get CV file
+  cv: `*[_type == "cv"][0] {
+    _id,
+    "fileUrl": cvFile.asset->url,
+    "fileName": cvFile.originalFilename
+  }`
+}
+
+export const portfolioQueries = {
+  // Get Portfolio file
+  portfolio: `*[_type == "portfolio"][0] {
+    _id,
+    "fileUrl": portfolioFile.asset->url,
+    "fileName": portfolioFile.originalFilename
+  }`
+}

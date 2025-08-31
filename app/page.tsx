@@ -19,6 +19,8 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('projects');
   const [projects, setProjects] = useState<any[]>([]);
   const [certificates, setCertificates] = useState<any[]>([]);
+  const [cv, setCv] = useState<any>(null);
+  const [portfolio, setPortfolio] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [visibleProjects, setVisibleProjects] = useState(3);
   const previousTabRef = useRef<string>(activeTab);
@@ -46,13 +48,17 @@ export default function Home() {
     async function fetchData() {
       try {
         const { client } = await import('../lib/client');
-        const { projectQueries, certificateQueries } = await import('../lib/queries');
+        const { projectQueries, certificateQueries, cvQueries, portfolioQueries } = await import('../lib/queries');
         
         const projectsData = await client.fetch(projectQueries.all);
         const certificatesData = await client.fetch(certificateQueries.all);
+        const cvData = await client.fetch(cvQueries.cv);
+        const portfolioData = await client.fetch(portfolioQueries.portfolio);
         
         setProjects(projectsData);
         setCertificates(certificatesData);
+        setCv(cvData);
+        setPortfolio(portfolioData);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -350,14 +356,44 @@ export default function Home() {
               
               {/* Button group */}
               <div className="reveal-on-scroll flex flex-row flex-nowrap gap-4 items-center justify-start" style={{ animationDelay: '0.05s' }}>
-                <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
-                  <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
-                </button>
-                <button className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
-                  <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
-                </button>
+                {cv && (
+                  <button 
+                    onClick={() => {
+                      if (cv.fileUrl) {
+                        const link = document.createElement('a');
+                        link.href = cv.fileUrl;
+                        link.download = cv.fileName || 'CV-Arvin-Roeslim.pdf';
+                        link.target = '_blank';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }
+                    }}
+                    className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                    <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
+                  </button>
+                )}
+                {portfolio && (
+                  <button 
+                    onClick={() => {
+                      if (portfolio.fileUrl) {
+                        const link = document.createElement('a');
+                        link.href = portfolio.fileUrl;
+                        link.download = portfolio.fileName || 'Portfolio-Arvin-Roeslim.pdf';
+                        link.target = '_blank';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }
+                    }}
+                    className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
+                    <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
+                  </button>
+                )}
               </div>
             </div>
 
