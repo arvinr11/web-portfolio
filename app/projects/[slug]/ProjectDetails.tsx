@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import Aurora from '../../components/Backgrounds/Aurora/Aurora';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../../components/Footer';
 
 interface Project {
   _id: string

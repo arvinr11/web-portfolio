@@ -4,14 +4,14 @@ import SplitText from "./components/TextAnimations/SplitText/SplitText";
 import TextType from "./components/TextAnimations/TextType/TextType";
 import {MoveRight, Download, FolderOpen, Award, Code} from 'lucide-react';
 import Image from 'next/image';
-import BottomNav from './components/BottomNav/BottomNav';
+import BottomNav from './components/BottomNav';
 import ProjectCard from './components/ProjectCard';
 import CertificateCard from './components/CertificateCard';
 import CertificateModal from './components/CertificateModal';
 import ProfileCard from './components/Components/ProfileCard/ProfileCard';
 import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard';
 import Aurora from './components/Backgrounds/Aurora/Aurora';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer';
 
 import { useEffect, useState, useRef } from 'react';
 
