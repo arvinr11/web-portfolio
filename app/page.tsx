@@ -15,12 +15,41 @@ import Footer from './components/Footer';
 
 import { useEffect, useState, useRef } from 'react';
 
+interface Project {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  description: string;
+  technologies: { iconUrl: string }[];
+  category: string;
+  featured: boolean;
+  _createdAt: string;
+  images: { url: string; alt: string; isMain: boolean }[];
+}
+
+interface Certificate {
+  _id: string;
+  imageUrl: string;
+}
+
+interface CV {
+  _id: string;
+  fileUrl: string;
+  fileName: string;
+}
+
+interface Portfolio {
+  _id: string;
+  fileUrl: string;
+  fileName: string;
+}
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState('projects');
-  const [projects, setProjects] = useState<any[]>([]);
-  const [certificates, setCertificates] = useState<any[]>([]);
-  const [cv, setCv] = useState<any>(null);
-  const [portfolio, setPortfolio] = useState<any>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [certificates, setCertificates] = useState<Certificate[]>([]);
+  const [cv, setCv] = useState<CV | null>(null);
+  const [portfolio, setPortfolio] = useState<Portfolio | null>(null);
   const [loading, setLoading] = useState(true);
   const [visibleProjects, setVisibleProjects] = useState(3);
   const previousTabRef = useRef<string>(activeTab);

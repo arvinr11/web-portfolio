@@ -15,10 +15,11 @@ interface Project {
   category: string
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   try {
+    const { slug } = await params;
     const project = (await client.fetch(projectQueries.bySlug, {
-      slug: params.slug,
+      slug,
     })) as Project | null
 
     if (!project) {
@@ -26,7 +27,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-4">Project not found</h1>
-            <p className="text-slate-500 dark:text-slate-400">The project you're looking for doesn't exist.</p>
+            <p className="text-slate-500 dark:text-slate-400">The project you&apos;re looking for doesn&apos;t exist.</p>
           </div>
         </div>
       )

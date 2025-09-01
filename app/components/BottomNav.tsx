@@ -1,4 +1,4 @@
-import { Home, User, ChevronsLeftRight, Mail, Github, Linkedin } from 'lucide-react';
+import { Home, User, ChevronsLeftRight, Mail } from 'lucide-react';
 
 const navItems = [
   { icon: Home, label: 'Home', href: '#home' },
