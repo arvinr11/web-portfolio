@@ -403,7 +403,7 @@ export default function Home() {
             {/* Kolom kanan - ProfileCard Component */}
             <div className="lg:col-span-1 flex justify-center lg:justify-end reveal-on-scroll" style={{ animationDelay: '0.45s' }}>
               <ProfileCard
-                avatarUrl="/mobile-illustrator.png"
+                avatarUrl="/personal-photo.png"
                 name="Arvin Roeslim"
                 title="Mobile Developer"
                 handle="arvinr11"
