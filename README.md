@@ -67,9 +67,9 @@ This portfolio is deployed on [Vercel](https://vercel.com) for optimal performan
 
 ## 📧 Contact
 
-- **Portfolio**: [Your Portfolio URL]
-- **GitHub**: [Your GitHub Profile]
-- **LinkedIn**: [Your LinkedIn Profile]
+- **Portfolio**: [Website]arvinroeslim.me
+- **GitHub**: [GitHub]github.com/arvinr11
+- **LinkedIn**: [LinkedIn]linkedin.com/in/arvinroeslim
 
 ---
 
