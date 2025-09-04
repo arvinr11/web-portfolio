@@ -604,23 +604,6 @@ export default function Home() {
             {activeTab === 'techstack' && (
               <div className={`tab-switch-content animate-fade-in ${tabTransition === 'right' ? 'animate-tab-in-right' : 'animate-tab-in-left'}`}>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-2 md:px-4 max-w-6xl mx-auto items-stretch">
-                  {/* Dart */}
-                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
-                      <Image 
-                        src="/tech-logos/dart.svg"
-                        alt="Dart icon"
-                        width={96}
-                        height={96}
-                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
-                      />
-                    </div>
-                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
-                      Dart
-                    </span>
-                  </div>
-
                   {/* Flutter */}
                   <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
@@ -638,20 +621,20 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* Firebase */}
+                  {/* Dart */}
                   <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
                       <Image 
-                        src="/tech-logos/firebase.svg"
-                        alt="Firebase icon"
+                        src="/tech-logos/dart.svg"
+                        alt="Dart icon"
                         width={96}
                         height={96}
                         className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
                     <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
-                      Firebase
+                      Dart
                     </span>
                   </div>
 
@@ -672,20 +655,88 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* GitHub */}
+                  {/* Kotlin */}
                   <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-white to-gray-200 rounded-full opacity-0 group-hover:opacity-60 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-orange-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
                       <Image 
-                        src="/tech-logos/github.svg"
-                        alt="GitHub icon"
+                        src="/tech-logos/kotlin.svg"
+                        alt="Kotlin icon"
                         width={96}
                         height={96}
                         className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
                     <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
-                      GitHub
+                      Kotlin
+                    </span>
+                  </div>
+
+                  {/* HTML */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/html.svg"
+                        alt="HTML icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      HTML
+                    </span>
+                  </div>
+
+                  {/* CSS */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/css.svg"
+                        alt="CSS icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      CSS
+                    </span>
+                  </div>
+
+                  {/* JavaScript */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-amber-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/js.svg"
+                        alt="JavaScript icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      JavaScript
+                    </span>
+                  </div>
+
+                  {/* Firebase */}
+                  <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <Image 
+                        src="/tech-logos/firebase.svg"
+                        alt="Firebase icon"
+                        width={96}
+                        height={96}
+                        className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
+                      />
+                    </div>
+                    <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+                      Firebase
                     </span>
                   </div>
 
@@ -706,20 +757,20 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* Kotlin */}
+                  {/* GitHub */}
                   <div className="group w-full aspect-square p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
                     <div className="relative">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-orange-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-white to-gray-200 rounded-full opacity-0 group-hover:opacity-60 blur transition duration-300"></div>
                       <Image 
-                        src="/tech-logos/kotlin.svg"
-                        alt="Kotlin icon"
+                        src="/tech-logos/github.svg"
+                        alt="GitHub icon"
                         width={96}
                         height={96}
                         className="relative h-16 w-16 md:h-20 md:w-20 transform transition-transform duration-300"
                       />
                     </div>
                     <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
-                      Kotlin
+                      GitHub
                     </span>
                   </div>
                 </div>
