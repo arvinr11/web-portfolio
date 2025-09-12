@@ -334,7 +334,7 @@ export default function Home() {
               >
                 <Image 
                   src="/mobile-illustrator.png" 
-                  alt="Mobile Development Illustration - Two phones showing mobile development" 
+                  alt="Arvin Roeslim - Mobile Developer Portfolio Illustration showing Flutter and Android development" 
                   width={1000}
                   height={1000}
                   className="w-full h-full object-contain animate-mobile-entrance select-none"
