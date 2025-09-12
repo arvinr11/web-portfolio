@@ -70,17 +70,17 @@ export default function ProjectDetails({ project }: { project: Project }) {
             // Gunakan path tanpa hash untuk menghindari scroll restoration
             window.location.href = '/';
           }}
-          className="inline-flex items-center gap-3 px-4 py-3 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
+          className="inline-flex items-center gap-3 px-4 py-3 bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl border-2 border-slate-600/60 hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
         >
-          <ArrowLeft size={20} className="text-slate-700 dark:text-slate-200" />
-          <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Back</span>
+          <ArrowLeft size={20} className="text-slate-200" />
+          <span className="text-sm font-semibold text-slate-200">Back</span>
         </button>
       </div>
 
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-24 pb-0">
         {/* Project Title - Above everything */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-800 dark:text-slate-100 leading-tight mb-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-100 leading-tight mb-8">
           {project.title}
         </h1>
 
@@ -104,24 +104,24 @@ export default function ProjectDetails({ project }: { project: Project }) {
                     {/* Left Arrow */}
                     <button 
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 border-2 border-white/60 dark:border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-slate-700 hover:scale-110 border-2 border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
                     >
-                      <ChevronLeft className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+                      <ChevronLeft className="w-5 h-5 text-slate-200" />
                     </button>
                     
                     {/* Right Arrow */}
                     <button 
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 border-2 border-white/60 dark:border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-800/95 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-slate-700 hover:scale-110 border-2 border-slate-600/60 cursor-pointer shadow-2xl hover:shadow-3xl"
                     >
-                      <ChevronRight className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+                      <ChevronRight className="w-5 h-5 text-slate-200" />
                     </button>
                   </>
                 )}
               </div>
             ) : (
-              <div className="w-full aspect-video bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center">
-                <p className="text-slate-500 dark:text-slate-400">No image available</p>
+              <div className="w-full aspect-video bg-slate-700 rounded-lg flex items-center justify-center">
+                <p className="text-slate-400">No image available</p>
               </div>
             )}
             
@@ -133,8 +133,8 @@ export default function ProjectDetails({ project }: { project: Project }) {
                     key={index}
                     onClick={() => goToImage(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                      index === currentImageIndex ? 'bg-blue-500' : 'bg-slate-300 dark:bg-slate-600'
-                    } hover:bg-blue-400 dark:hover:bg-blue-400`}
+                      index === currentImageIndex ? 'bg-blue-500' : 'bg-slate-600'
+                    } hover:bg-blue-400`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
@@ -148,7 +148,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md text-slate-700 dark:text-slate-200 rounded-xl shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
+                  className="inline-flex items-center gap-3 px-7 py-4 bg-slate-800/95 backdrop-blur-md text-slate-200 rounded-xl shadow-2xl border-2 border-slate-600/60 hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
                 >
                   <Github size={22} />
                   <span className="text-lg font-semibold">GitHub</span>
@@ -159,8 +159,8 @@ export default function ProjectDetails({ project }: { project: Project }) {
 
           {/* Right: Description only */}
           <div className="w-full lg:w-1/3">
-            <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-200 mb-3">Description</h2>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+            <h2 className="text-xl font-semibold text-slate-200 mb-3">Description</h2>
+            <p className="text-slate-300 leading-relaxed text-justify">
               {project.description}
             </p>
           </div>
@@ -168,12 +168,12 @@ export default function ProjectDetails({ project }: { project: Project }) {
 
         {/* Technology Used Section - Icons Centered in Borders */}
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6">Technology Used</h2>
+          <h2 className="text-2xl font-bold text-slate-100 mb-6">Technology Used</h2>
           <div className="flex flex-wrap gap-5">
             {(project.technologies || []).map((tech, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center w-16 h-16 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-full shadow-2xl border-2 border-white/60 dark:border-slate-600/60 hover:bg-white dark:hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
+                className="flex items-center justify-center w-16 h-16 bg-slate-800/95 backdrop-blur-md rounded-full shadow-2xl border-2 border-slate-600/60 hover:bg-slate-700 hover:scale-110 transition-all duration-300 hover:shadow-3xl"
               >
                 <Image 
                   src={tech.iconUrl} 

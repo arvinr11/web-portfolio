@@ -289,7 +289,7 @@ export default function Home() {
       <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-10 mb-32">
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-8xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 dark:text-white">
+            <h1 className="text-8xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
               <SplitText 
                 text="Hi, I'm Arvin"
                 className="text-6xl font-semibold text-center"
@@ -304,16 +304,16 @@ export default function Home() {
                 textAlign="center"
               />
             </h1>
-            <p className="mt-4 text-xl text-slate-900 dark:text-white max-w-xl mx-auto md:mx-0 animate-text-fade-in">
+            <p className="mt-4 text-xl text-white max-w-xl mx-auto md:mx-0 animate-text-fade-in">
               A Mobile Developer with experience in Flutter and native Android (Kotlin).
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#portfolio" className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
+              <a href="#portfolio" className="group flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
                 <span className="animate-text-slide-in">See Projects</span>
                 <MoveRight size={20} className="animate-text-slide-in transition-transform duration-300 group-hover:translate-x-1" />
               </a>
-              <a href="#contact" className="group flex items-center gap-2 px-6 py-3 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
+              <a href="#contact" className="group flex items-center gap-2 px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up">
                 <span className="animate-text-slide-in">Contact Me</span>
                 <MoveRight size={20} className="animate-text-slide-in transition-transform duration-300 group-hover:translate-x-1" />
               </a>
@@ -355,7 +355,7 @@ export default function Home() {
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent mb-4 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
               About Me
             </h2>
           </div>
@@ -365,8 +365,8 @@ export default function Home() {
             
             {/* Kolom kiri - Deskripsi */}
             <div className="lg:col-span-1">
-              <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
-                <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent">
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight reveal-on-scroll" style={{ animationDelay: '0.15s' }}>
+                <span className="block bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent">
                   <TextType 
                     text={["Hello I am", "你好，我叫"]}
                     typingSpeed={200}
@@ -379,7 +379,7 @@ export default function Home() {
                 </span>
                 <span className="block">Arvin Roeslim</span>
               </h3>
-              <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-8 reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
+              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-8 reveal-on-scroll" style={{ animationDelay: '0.25s' }}>
                 I am currently a fifth-semester Mobile Application and Technology (MAT) student at Bina Nusantara (BINUS) University, with a deep passion for mobile development.
               </p>
               
@@ -398,7 +398,7 @@ export default function Home() {
                         document.body.removeChild(link);
                       }
                     }}
-                    className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    className="group flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
                     <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
                     <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download CV</span>
@@ -417,7 +417,7 @@ export default function Home() {
                         document.body.removeChild(link);
                       }
                     }}
-                    className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    className="group flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
                     <Download size={20} className="button-icon-reveal delay-1 transition-transform duration-300 group-hover:-translate-x-1" />
                     <span className="button-text-reveal delay-2 whitespace-nowrap transition-transform duration-300 group-hover:translate-x-1">Download Portfolio</span>
@@ -452,7 +452,7 @@ export default function Home() {
         <div className="container mx-auto">
           {/* Title di tengah */}
           <div className="text-center mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent mb-4">
               Portfolio Showcase
             </h2>
           </div>
@@ -464,8 +464,8 @@ export default function Home() {
               onClick={() => setActiveTab('projects')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'projects'
-                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
+                  ? 'border-blue-500 bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-700 hover:border-blue-600 bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
@@ -473,11 +473,11 @@ export default function Home() {
                   size={32} 
                   className={`mx-auto ${
                     activeTab === 'projects' 
-                      ? 'text-blue-600 dark:text-blue-400' 
-                      : 'text-gray-600 dark:text-gray-400'
+                      ? 'text-blue-400' 
+                      : 'text-gray-400'
                   }`}
                 />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   Projects
                 </h3>
               </div>
@@ -488,8 +488,8 @@ export default function Home() {
               onClick={() => setActiveTab('certificates')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'certificates'
-                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
+                  ? 'border-blue-500 bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-700 hover:border-blue-600 bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
@@ -497,11 +497,11 @@ export default function Home() {
                   size={32} 
                   className={`mx-auto ${
                     activeTab === 'certificates' 
-                      ? 'text-blue-600 dark:text-blue-400' 
-                      : 'text-gray-600 dark:text-gray-400'
+                      ? 'text-blue-400' 
+                      : 'text-gray-400'
                   }`}
                 />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   Certificates
                 </h3>
               </div>
@@ -512,8 +512,8 @@ export default function Home() {
               onClick={() => setActiveTab('techstack')}
               className={`w-full p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 ${
                 activeTab === 'techstack'
-                  ? 'border-blue-500 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md'
+                  ? 'border-blue-500 bg-slate-800/95 backdrop-blur-md shadow-lg'
+                  : 'border-gray-700 hover:border-blue-600 bg-slate-800/95 backdrop-blur-md'
               }`}
             >
               <div className="flex flex-col items-center justify-center text-center gap-1">
@@ -521,11 +521,11 @@ export default function Home() {
                   size={32} 
                   className={`mx-auto ${
                     activeTab === 'techstack' 
-                      ? 'text-blue-600 dark:text-blue-400' 
-                      : 'text-gray-600 dark:text-gray-400'
+                      ? 'text-blue-400' 
+                      : 'text-gray-400'
                   }`}
                 />
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   Tech Stack
                 </h3>
               </div>
@@ -540,7 +540,7 @@ export default function Home() {
                 {loading ? (
                   <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                    <p className="mt-4 text-slate-600 dark:text-slate-400">Loading projects...</p>
+                    <p className="mt-4 text-slate-400">Loading projects...</p>
                   </div>
                 ) : projects.length > 0 ? (
                   <>
@@ -568,7 +568,7 @@ export default function Home() {
                   </>
                 ) : (
                   <div className="text-center py-8">
-                    <p className="text-slate-600 dark:text-slate-400">No projects found</p>
+                    <p className="text-slate-400">No projects found</p>
                   </div>
                 )}
               </div>
@@ -580,7 +580,7 @@ export default function Home() {
                 {loading ? (
                   <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-                    <p className="mt-4 text-slate-600 dark:text-slate-400">Loading certificates...</p>
+                    <p className="mt-4 text-slate-400">Loading certificates...</p>
                   </div>
                 ) : certificates.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 md:px-4 auto-rows-fr">
@@ -594,7 +594,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <p className="text-slate-600 dark:text-slate-400">No certificates found</p>
+                    <p className="text-slate-400">No certificates found</p>
                   </div>
                 )}
               </div>
@@ -783,7 +783,7 @@ export default function Home() {
       {/* Contact Me Section */}
       <section id="contact" className="py-8 px-6 md:px-10 mb-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-300 bg-clip-text text-transparent mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent mb-12 reveal-on-scroll" style={{ animationDelay: '0.05s' }}>
             Contact Me
           </h2>
           

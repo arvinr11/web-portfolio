@@ -32,7 +32,7 @@ export default function CertificateCard({ certificate, onClick }: CertificateCar
       onClick={onClick}
       onKeyDown={handleKeyDown}
     >
-      <div className="w-full h-64 rounded-lg overflow-hidden border border-gray-200 bg-white flex items-center justify-center">
+      <div className="w-full h-64 rounded-lg overflow-hidden border border-gray-700 bg-slate-800 flex items-center justify-center">
         <Image
           src={certificate.imageUrl}
           alt={certificate.title || 'Certificate'}

@@ -4,9 +4,8 @@ A modern, responsive portfolio website built with Next.js 15, showcasing my proj
 
 ## 🚀 Features
 
-- **Modern Design** - Clean and professional portfolio layout
+- **Modern Design** - Clean and professional portfolio layout with dark theme
 - **Responsive** - Optimized for all devices (desktop, tablet, mobile)
-- **Dark/Light Mode** - Toggle between themes
 - **Interactive Components** - Hover effects, animations, and smooth transitions
 - **Project Showcase** - Display projects with images and descriptions
 - **Skills & Certificates** - Showcase technical skills and achievements
@@ -67,9 +66,9 @@ This portfolio is deployed on [Vercel](https://vercel.com) for optimal performan
 
 ## 📧 Contact
 
-- **Portfolio**: [Website](arvinroeslim.me)
-- **GitHub**: [GitHub](github.com/arvinr11)
-- **LinkedIn**: [LinkedIn](linkedin.com/in/arvinroeslim)
+- **Portfolio**: [arvinroeslim.me](arvinroeslim.me)
+- **GitHub**: [github.com/arvinr11](github.com/arvinr11)
+- **LinkedIn**: [linkedin.com/in/arvinroeslim](linkedin.com/in/arvinroeslim)
 
 ---
 

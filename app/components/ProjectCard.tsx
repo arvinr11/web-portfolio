@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   }
 
   return (
-    <div className="group border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full h-full">
+    <div className="group border-2 border-slate-700 rounded-2xl overflow-hidden bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full h-full">
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden m-4 rounded-xl">
         {project.featured && (
@@ -66,12 +66,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Info */}
       <div className="px-6 pb-6">
         {/* Title */}
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
         </h3>
 
                        {/* Description - Flexible height based on tech stack */}
-               <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 min-h-[3rem]">
+               <p className="text-slate-300 mb-4 line-clamp-2 min-h-[3rem]">
                  {project.description.length > 100 
                    ? `${project.description.substring(0, 100)}... See more` 
                    : project.description}
@@ -84,7 +84,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.technologies?.map((tech, index) => (
             <div
               key={index}
-              className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center hover:scale-110 transition-transform duration-200 border border-slate-200 dark:border-slate-600"
+              className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center hover:scale-110 transition-transform duration-200 border border-slate-600"
               title="Technology"
             >
               <Image
